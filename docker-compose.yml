@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  spark:
+    build: .
+    container_name: spark
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./data:/data
+      - ./kaggle.json:/root/.kaggle/kaggle.json:ro
+    environment:
+      - SPARK_MODE=local
